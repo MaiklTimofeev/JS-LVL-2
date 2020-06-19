@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 100px;
+  background-color: #BDD3C2;
+  border: 1px solid #ececec;
+  -webkit-box-shadow: 0 0 10 0 #ececec;
+          box-shadow: 0 0 10 0 #ececec;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 32px;
+}
+
+.logo {
+  font-size: 32px;
+}
+
+.cart {
+  position: relative;
+}
+
+.buy-btn,
+.btn-cart {
+  padding: 16px 32px;
+  border: 1px solid #e6e6e6;
+  border-radius: 0px 3px 3px 0px;
+  background-color: white;
+}
+
+.buy-btn:hover,
+.btn-cart:hover {
+  color: white;
+  background-color: black;
+}
+
+.cart-prod {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 8px;
+}
+
+.cart-block {
+  width: 300px;
+  position: absolute;
+  border: 1px solid black;
+  top: 60px;
+  padding: 12px;
+  right: 20px;
+  background-color: white;
+}
+
+.cart-item {
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product-desc p {
+  padding: 8px;
+}
+
+.right-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.del-btn {
+  font-size: 32px;
+  background-color: white;
+  border: none;
+}
+
+.cart-total {
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product-item {
+  padding: 16px 40px;
+}
+
+.product-item img {
+  width: 240px;
+  height: 160px;
+}
+
+.desc {
+  text-align: center;
+}
+
+.desc h1 {
+  font-size: 24px;
+  padding-top: 4px;
+}
+
+.desc p {
+  padding-top: 4px;
+  font-size: 24px;
+}
+
+.desc button {
+  margin-top: 8px;
+}
+/*# sourceMappingURL=style.css.map */
