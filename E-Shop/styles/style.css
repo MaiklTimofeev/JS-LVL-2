@@ -29,6 +29,10 @@ header {
   position: relative;
 }
 
+button {
+  outline: none;
+}
+
 .buy-btn,
 .btn-cart {
   padding: 16px 32px;
@@ -54,7 +58,7 @@ header {
 }
 
 .cart-block {
-  width: 300px;
+  width: 560px;
   position: absolute;
   border: 1px solid black;
   top: 60px;
@@ -86,10 +90,14 @@ header {
           align-items: center;
 }
 
+.min-btn,
+.pls-btn,
 .del-btn {
-  font-size: 32px;
+  font-size: 16px;
   background-color: white;
   border: none;
+  border-left: 1px solid grey;
+  padding: 0 16px;
 }
 
 .cart-total {
@@ -114,12 +122,18 @@ header {
 }
 
 .product-item {
-  padding: 16px 40px;
+  padding: 16px 16px;
 }
 
 .product-item img {
-  width: 240px;
-  height: 160px;
+  width: 160px;
+  height: 120px;
+}
+
+.product-desc {
+  width: 200px;
+  padding-left: 16px;
+  text-align: left;
 }
 
 .desc {
@@ -138,5 +152,9 @@ header {
 
 .desc button {
   margin-top: 8px;
+}
+
+.invisible {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

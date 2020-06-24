@@ -17,7 +17,9 @@ header
 
 .cart
     position: relative
-    
+
+button
+    outline: none   
 
 .buy-btn,    
 .btn-cart
@@ -35,19 +37,19 @@ header
     padding: 8px
 
 .cart-block
-    width: 300px
+    width: 560px
     position: absolute
     border: 1px solid black 
     top: 60px
     padding: 12px
     right: 20px
-    
     background-color: white
 
 .cart-item
     padding: 8px
     display: flex
     justify-content: space-between
+        
 
 .product-desc
     p
@@ -56,11 +58,15 @@ header
 .right-block
     display: flex
     align-items: center
-
+    
+.min-btn,
+.pls-btn,
 .del-btn
-    font-size: 32px
+    font-size: 16px
     background-color: white
     border: none
+    border-left: 1px solid grey
+    padding: 0 16px
 
 .cart-total
     padding: 8px
@@ -73,11 +79,16 @@ header
     flex-wrap: wrap
     justify-content: space-between
 
-.product-item
-    padding: 16px 40px
-    img
-        width: 240px
-        height: 160px
+.product
+    &-item
+        padding: 16px 16px
+        img
+            width: 160px
+            height: 120px
+    &-desc
+        width: 200px
+        padding-left: 16px
+        text-align: left
 
 .desc
     text-align: center
@@ -90,4 +101,5 @@ header
     button
         margin-top: 8px
 
-    
+.invisible
+    display: none
