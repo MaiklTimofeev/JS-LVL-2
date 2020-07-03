@@ -27,6 +27,12 @@ header {
 
 .cart {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 button {
@@ -34,7 +40,8 @@ button {
 }
 
 .buy-btn,
-.btn-cart {
+.btn-cart,
+.btn-search {
   padding: 16px 32px;
   border: 1px solid #e6e6e6;
   border-radius: 0px 3px 3px 0px;
@@ -42,7 +49,8 @@ button {
 }
 
 .buy-btn:hover,
-.btn-cart:hover {
+.btn-cart:hover,
+.btn-search:hover {
   color: white;
   background-color: black;
 }
@@ -156,5 +164,19 @@ button {
 
 .invisible {
   display: none;
+}
+
+.search-form {
+  padding: 4px;
+  margin-right: 20px;
+}
+
+.search-form input {
+  padding: 4px;
+}
+
+.no-data {
+  padding: 16px;
+  font-size: 32px;
 }
 /*# sourceMappingURL=style.css.map */
