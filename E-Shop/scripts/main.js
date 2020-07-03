@@ -1,3 +1,4 @@
+
 let app = new Vue({
     el: '#app',
     data: {
@@ -12,7 +13,6 @@ let app = new Vue({
         userSearch: '',
 
     },
-
     mounted() {
        this.JSONS.forEach(json => {
            this.get(json)
