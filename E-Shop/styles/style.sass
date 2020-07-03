@@ -17,12 +17,16 @@ header
 
 .cart
     position: relative
+    display: flex
+    justify-content: space-between
+
 
 button
     outline: none   
 
 .buy-btn,    
-.btn-cart
+.btn-cart,
+.btn-search
     padding: 16px 32px
     border: 1px solid rgba(230, 230, 230, 1)
     border-radius: 0px 3px 3px 0px
@@ -103,3 +107,13 @@ button
 
 .invisible
     display: none
+
+.search-form
+    padding: 4px
+    margin-right: 20px
+    input
+        padding: 4px
+
+.no-data
+    padding: 16px
+    font-size: 32px
