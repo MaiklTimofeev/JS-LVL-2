@@ -1,4 +1,6 @@
 
+
+
 let app = new Vue({
     el: '#app',
     data: {
@@ -14,19 +16,20 @@ let app = new Vue({
 
     },
     mounted() {
-       this.JSONS.forEach(json => {
-           this.get(json)
-           .then(res => {
-               if (json === 'catalogData.json') {
-                   this.items = res;
-                   this.filteredItems = res;
-               } else if (json === 'cartData.json') {
-                   this.itemsCart = res;
-                   console.log(this.itemsCart);
-               }
-           })
-       })
-            
+        this.JSONS.forEach(json => {
+            this.get(json)
+                .then(res => {
+                    if (json === 'catalogData.json') {
+                        this.items = res;
+                        this.filteredItems = res;
+                        console.log(res);
+                    } else if (json === 'cartData.json') {
+                        this.itemsCart = res;
+                        console.log(this.itemsCart);
+                    }
+                })
+        })
+
     },
     methods: {
         get(url) {
@@ -34,34 +37,6 @@ let app = new Vue({
         },
         showHideCart() {
             !this.isVisibleCart ? this.isVisibleCart = true : this.isVisibleCart = false;
-        },
-        addProductToCart(e) {
-            let id = e.target.dataset['id'];
-            let find = this.itemsCart.find(product => product.id_product == id);
-            if (find) {
-                find.quantity++;
-            } else {
-                let prod = this.createNewProduct(e.target);
-                this.itemsCart.push(prod);
-                console.log(this.itemsCart);
-            }
-        },
-        createNewProduct(prod) {
-            return {
-                product_name: prod.dataset['name'],
-                price: prod.dataset['price'],
-                id_product: prod.dataset['id'],
-                quantity: 1
-            }
-        },
-        deleteProductFromCart(e) {
-            let id = e.target.dataset['id']
-            let find = this.itemsCart.find(product => product.id_product == id)
-            if (find.quantity > 1) {
-                find.quantity--
-            } else {
-                this.itemsCart.splice(this.items.indexOf(find), 1)
-            }
         },
         filterItems() {
             console.log("filter");
@@ -87,4 +62,3 @@ let app = new Vue({
     }
 
 })
-
