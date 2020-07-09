@@ -1,39 +1,44 @@
-
-
-
 let app = new Vue({
     el: '#app',
     data: {
         items: [],
         itemsCart: [],
         filteredItems: [],
-        API: 'https://raw.githubusercontent.com/MaiklTimofeev/E-Shop-API/master/',
-        JSONS: ['catalogData.json', 'cartData.json'],
         isVisibleCart: false,
         totalQua: 0,
         totalSum: 0,
         userSearch: '',
 
     },
-    mounted() {
-        this.JSONS.forEach(json => {
-            this.get(json)
-                .then(res => {
-                    if (json === 'catalogData.json') {
-                        this.items = res;
-                        this.filteredItems = res;
-                        console.log(res);
-                    } else if (json === 'cartData.json') {
-                        this.itemsCart = res;
-                        console.log(this.itemsCart);
-                    }
-                })
-        })
-
-    },
     methods: {
         get(url) {
-            return fetch(this.API + url).then(d => d.json())
+            return fetch(url).then(d => d.json())
+        },
+        post(url, item) {
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(item)
+            }).then(d => d.json());
+        },
+        put(url, item) {
+            return fetch(url, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(item)
+            }).then(d => d.json());
+        },
+        delete(url) {
+            return fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(d => d.json());
         },
         showHideCart() {
             !this.isVisibleCart ? this.isVisibleCart = true : this.isVisibleCart = false;

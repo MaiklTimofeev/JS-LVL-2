@@ -1,7 +1,10 @@
-
-
 Vue.component('cart-list', {
     props: ['cartItems'],
+    data() {
+        return {
+            cartApi: '/cartData',
+        }
+    },
     template: `
     <div class="cart-items">
         <one-cart 
@@ -13,37 +16,26 @@ Vue.component('cart-list', {
     </div>
     `,
     methods: {
-        
-        createNewProduct(prod) {
-            return {
-                product_name: prod.dataset['name'],
-                price: prod.dataset['price'],
-                id_product: prod.dataset['id'],
-                quantity: 1
-            }
-        },
-        addProductToCart(e) {
-            let id = e.target.dataset['id'];
-            let find = this.$parent.itemsCart.find(product => product.id_product == id);
-            if (find) {
-                find.quantity++;
-            } else {
-                let prod = this.createNewProduct(e.target);
-                this.$parent.itemsCart.push(prod);
-                console.log(this.$parent.itemsCart);
-            }
-        },
         deleteProductFromCart(e) {
-            console.log(e.target)
-            let id = e.target.dataset['id']
-            
-            let find = this.$parent.itemsCart.find(product => product.id_product == id)
-            if (find.quantity > 1) {
-                find.quantity--
+            if (e.quantity > 1) {
+                e.quantity--
             } else {
-                this.$parent.itemsCart.splice(this.items.indexOf(find), 1)
+                // this.$parent.itemsCart.splice(this.cartItems.indexOf(e), 1);
+                this.$parent.delete('/cartData', e)
+                    .then(res => {
+                        console.log(res);
+                        this.$parent.itemsCart = res;
+                    });
             }
         },
+        
+    },
+    mounted() {
+        this.$parent.get(this.cartApi)
+            .then(res => {
+                this.$parent.itemsCart = res;
+                console.log(res);
+            })
     }
 });
 
