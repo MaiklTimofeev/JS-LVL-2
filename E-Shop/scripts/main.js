@@ -4,64 +4,44 @@ let app = new Vue({
         items: [],
         itemsCart: [],
         filteredItems: [],
-        API: 'https://raw.githubusercontent.com/MaiklTimofeev/E-Shop-API/master/',
-        JSONS: ['catalogData.json', 'cartData.json'],
         isVisibleCart: false,
         totalQua: 0,
         totalSum: 0,
         userSearch: '',
 
     },
-
-    mounted() {
-       this.JSONS.forEach(json => {
-           this.get(json)
-           .then(res => {
-               if (json === 'catalogData.json') {
-                   this.items = res;
-                   this.filteredItems = res;
-               } else if (json === 'cartData.json') {
-                   this.itemsCart = res;
-                   console.log(this.itemsCart);
-               }
-           })
-       })
-            
-    },
     methods: {
         get(url) {
-            return fetch(this.API + url).then(d => d.json())
+            return fetch(url).then(d => d.json())
+        },
+        post(url, item) {
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(item)
+            }).then(d => d.json());
+        },
+        put(url, item) {
+            return fetch(url, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(item)
+            }).then(d => d.json());
+        },
+        delete(url) {
+            return fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(d => d.json());
         },
         showHideCart() {
             !this.isVisibleCart ? this.isVisibleCart = true : this.isVisibleCart = false;
-        },
-        addProductToCart(e) {
-            let id = e.target.dataset['id'];
-            let find = this.itemsCart.find(product => product.id_product == id);
-            if (find) {
-                find.quantity++;
-            } else {
-                let prod = this.createNewProduct(e.target);
-                this.itemsCart.push(prod);
-                console.log(this.itemsCart);
-            }
-        },
-        createNewProduct(prod) {
-            return {
-                product_name: prod.dataset['name'],
-                price: prod.dataset['price'],
-                id_product: prod.dataset['id'],
-                quantity: 1
-            }
-        },
-        deleteProductFromCart(e) {
-            let id = e.target.dataset['id']
-            let find = this.itemsCart.find(product => product.id_product == id)
-            if (find.quantity > 1) {
-                find.quantity--
-            } else {
-                this.itemsCart.splice(this.items.indexOf(find), 1)
-            }
         },
         filterItems() {
             console.log("filter");
@@ -87,4 +67,3 @@ let app = new Vue({
     }
 
 })
-
