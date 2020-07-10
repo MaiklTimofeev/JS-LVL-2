@@ -1,0 +1,119 @@
+*
+    margin: 0
+    padding: 0
+
+header
+    height: 100px
+    background-color:#BDD3C2
+    border: 1px solid #ececec
+    box-shadow: 0 0 10 0 #ececec
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 32px
+
+.logo
+    font-size: 32px
+
+.cart
+    position: relative
+    display: flex
+    justify-content: space-between
+
+
+button
+    outline: none   
+
+.buy-btn,    
+.btn-cart,
+.btn-search
+    padding: 16px 32px
+    border: 1px solid rgba(230, 230, 230, 1)
+    border-radius: 0px 3px 3px 0px
+    background-color: white
+    &:hover
+        color: white
+        background-color: black
+
+.cart-prod
+    display: flex
+    justify-content: space-between
+    padding: 8px
+
+.cart-block
+    width: 560px
+    position: absolute
+    border: 1px solid black 
+    top: 60px
+    padding: 12px
+    right: 20px
+    background-color: white
+
+.cart-item
+    padding: 8px
+    display: flex
+    justify-content: space-between
+        
+
+.product-desc
+    p
+        padding: 8px
+
+.right-block
+    display: flex
+    align-items: center
+    
+.min-btn,
+.pls-btn,
+.del-btn
+    font-size: 16px
+    background-color: white
+    border: none
+    border-left: 1px solid grey
+    padding: 0 16px
+
+.cart-total
+    padding: 8px
+    display: flex
+    justify-content: space-between
+
+
+.products
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+.product
+    &-item
+        padding: 16px 16px
+        img
+            width: 160px
+            height: 120px
+    &-desc
+        width: 200px
+        padding-left: 16px
+        text-align: left
+
+.desc
+    text-align: center
+    h1
+        font-size: 24px
+        padding-top: 4px
+    p
+        padding-top: 4px
+        font-size: 24px
+    button
+        margin-top: 8px
+
+.invisible
+    display: none
+
+.search-form
+    padding: 4px
+    margin-right: 20px
+    input
+        padding: 4px
+
+.no-data
+    padding: 16px
+    font-size: 32px
